@@ -2,6 +2,8 @@ require_relative "pokemon"
 
 
 class Menu
+  attr_accessor :pokemons
+
   def initialize
     @pokemons = []
   end
@@ -73,6 +75,9 @@ def add
 end
 
 def battle
+
+puts "#{pokemons.sample}"
+
 end
 
 end
