@@ -4,10 +4,12 @@ require_relative "pokemon"
 class Menu
   def initialize
     @pokemons = []
-    puts "Welcome to the world of POKEMON!"
   end
 
   def run
+    puts "\n"    
+    puts "Welcome to the world of POKEMON!"
+    
     loop do
       puts "\n"    
       puts "What would you like to do next?"
@@ -31,6 +33,7 @@ class Menu
     when 4
       puts "\n"  
       puts "Thanks for playing! Come back to catch 'em all!"
+      puts "\n"
       break
     else
       puts "\n"  
@@ -60,6 +63,7 @@ def add
   print "Enter attack: "
   attack = gets.chomp
   @pokemons << Pokemon.new(name, type, attack)
+  puts "\n"
   puts "Welcome, #{name}!"
 end
 

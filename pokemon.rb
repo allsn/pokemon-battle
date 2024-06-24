@@ -4,7 +4,7 @@ class Pokemon
   def initialize(name, type, attack)
     @name = name
     @type = type
-    @attack = attack 
-      end
+    @attack = attack
+  end
 
 end
