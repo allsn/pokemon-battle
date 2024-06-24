@@ -62,7 +62,8 @@ def add
   type = gets.chomp
   print "Enter attack: "
   attack = gets.chomp
-  @pokemons << Pokemon.new(name, type, attack)
+  new_poke = Pokemon.new(name, type, attack)
+  @pokemons << new_poke
   puts "\n"
   puts "Welcome, #{name}!"
 end
