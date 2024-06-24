@@ -48,8 +48,12 @@ private
 def view
   puts "\n"  
   puts "Pokemon in your collection: "
-  @pokemons.each do |pokemon|
-    puts "#{pokemon.name.upcase}: #{pokemon.type.capitalize} type Pokemon with #{pokemon.attack.capitalize} attack."
+    if @pokemons.empty?
+      puts "None. Go back to add some!"
+    else
+      @pokemons.each do |pokemon|
+    puts "#{pokemon.name.upcase} ~ #{pokemon.type.capitalize} type Pokemon with #{pokemon.attack.capitalize} attack."
+    end
   end
 end
 
@@ -65,7 +69,7 @@ def add
   new_poke = Pokemon.new(name, type, attack)
   @pokemons << new_poke
   puts "\n"
-  puts "Welcome, #{name}!"
+  puts "Welcome, #{name.upcase}!"
 end
 
 def battle
