@@ -3,8 +3,8 @@ class Pokemon
 
   def initialize(name, type, attack)
     @name = name
-    @model = type
-    @year = attack
+    @type = type
+    @attack = attack
   end
 
 end
