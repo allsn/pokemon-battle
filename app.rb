@@ -1,4 +1,4 @@
-require_relative "main_menu"
+require_relative "menu"
 
-main_menu = Main.new
-main_menu.run
+menu = Menu.new
+menu.run

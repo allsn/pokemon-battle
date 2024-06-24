@@ -1,22 +1,19 @@
 require_relative "pokemon"
 
 
-class Main
+class Menu
   def initialize
-    @pokemon = []
+    @pokemons = []
   end
 
-
 def choose
-
-  #choose a pokemon
 
   loop do
     puts "\n"    
     puts "What would you like to do next?"
-    puts "1. View #{@name}'s profile"
+    puts "1. View all Pokemon"
     puts "2. Add a Pokemon"
-    puts "3. Start a battle with #{@name}"
+    puts "3. Start a battle"
     puts "4. Exit"
     puts "Choose an option: "
 
@@ -33,25 +30,31 @@ def choose
       puts "Thanks for playing! Come back to catch 'em all!"
       break
     else
-      puts "Please choose an option between 1 and 4."
+      puts "Please choose an option between 1 and 5."
     end
   end
 end
 
 def view
-  #"#{name} is a #{type} type Pokemon. Its attacks include: #{attack}.""
+  puts "Pokemon in your collection:"
+  @pokemons.each do |pokemon|
+    puts pokemon
+  end
 end
+
 
 def add
   print "Enter Pokemon name: "
   name = gets.chomp
-  print "Enter Pokemon type: "
+  print "Enter type: "
   type = gets.chomp
   print "Enter attack: "
   type = gets.chomp
   @pokemon << Pokemon.new(name, type, attack)
-  puts "Welcome, #{name}"
+  puts "Welcome, #{name}!"
 end
 
 #def battle
 #end
+
+end
