@@ -49,7 +49,7 @@ def view
   puts "\n"  
   puts "Pokemon in your collection: "
   @pokemons.each do |pokemon|
-    puts pokemon
+    puts "#{pokemon.name.upcase}: #{pokemon.type.capitalize} type Pokemon with #{pokemon.attack.capitalize} attack."
   end
 end
 
