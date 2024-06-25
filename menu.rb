@@ -84,13 +84,30 @@ puts "\n"
 
 competitor = @pokemons[poke_select - 1]
 opponent = @pokemons.sample
+comp_result_1 = "#{competitor.name} used #{competitor.attack} and wounded #{opponent.name}!"
+comp_result_2 = "#{competitor.name} used #{competitor.attack} and #{opponent.name} fainted! You WIN!"
+comp_result_3 = "#{opponent.name} ran away. The battle is over!"
+opp_result_1 = "#{opponent.name} used #{opponent.attack} and wounded #{competitor.name}!"
+opp_result_2 = "#{opponent.name} used #{opponent.attack} and #{competitor.name} fainted! You LOSE!"
+comp_moves = [comp_result_1, comp_result_2, comp_result_3]
+opp_moves = [opp_result_1, opp_result_2]
 
 puts "You've selected #{competitor.name.upcase}"
 puts "#{competitor.name.upcase} will battle #{opponent.name.upcase}. Let's begin!"
 
+puts "\n"  
+puts "Choose your next move: 1. HIT or 2. RUN AWAY"
+move_select = gets.chomp.to_i
+puts "\n"
 
-#player1_move == ["#{name} used #{attack} and wounded #{opponent.name}!", "#{name} used #{attack} and wounded #{opponent.name}!", "#{name} used #{attack} and wounded #{opponent.name}!", "#{name} used #{attack} and #{opponent.name} fainted! You WIN!", "#{opponent.name} ran away. The battle is over!"]
-#player2_move == ["#{opponent.name} used #{opponent.attack} and wounded #{name}!", "#{opponent.name} used #{opponent.attack} and wounded #{name}!", "#{opponent.name} used #{opponent.attack} and wounded #{name}!", "#{opponent.name} used #{opponent.attack} and #{name} fainted! You LOSE!"]
+    case move_select
+    when 1
+      add
+    when 2
+      puts "You ran away! Better luck next time :)"
+    else
+      puts "You must select 1 or 2."
+    end
 
 
 end
