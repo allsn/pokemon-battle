@@ -7,9 +7,10 @@ class Menu
     @pokemons = []
   end
 
+  puts "\n"    
+  puts "Welcome to the world of POKEMON! \n \n"
+
   def run
-    puts "\n"    
-    puts "Welcome to the world of POKEMON! \n \n"
     
     loop do
       puts "What would you like to do next? \n \n"
@@ -60,7 +61,7 @@ def view
   puts "\n"  
   puts "Pokemon in your collection: "
     if @pokemons.empty?
-      puts "None. Go back to add some!"
+      puts "None. Go back and add some! \n \n"
     else
       @pokemons.each_with_index do |pokemon, index|
       puts "#{index + 1}. #{pokemon.name.upcase} ~ #{pokemon.type.capitalize} type Pokemon with #{pokemon.attack.capitalize} attack"
@@ -70,6 +71,11 @@ end
 
 
 def battle
+
+if @pokemons.empty?
+  puts "\n"
+  puts "Go back and add some Pokemon first :) \n \n"
+else
 
 puts "\n"  
 puts "Choose your Pokemon by typing its assigned number: "
@@ -99,20 +105,23 @@ puts "#{competitor.name.upcase} will battle #{opponent.name.upcase}. Let's begin
   
       case move_select
         when 1
-          until @opp_moves.sample == @opp_result_2
+          until @comp_moves.sample == @comp_result_2 || @opp_moves.sample == @opp_result_2
             puts @comp_moves.sample
             puts @opp_moves.sample
+            in_battle            
           end
         when 2
           puts "You ran away! Better luck next time :) \n \n"
          else
            puts "You must select 1 or 2."
-          in_battle
+           in_battle
       end
   end
 
   in_battle
     
+end
+
 end
 
 end

@@ -15,3 +15,12 @@ def in_battle
         in_battle
     end
 end
+
+
+
+when 1
+  until @comp_moves.sample == @comp_result_2 || @opp_moves.sample == @opp_result_2
+    puts @comp_moves.sample
+    puts @opp_moves.sample
+    in_battle
+  end
