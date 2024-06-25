@@ -2,8 +2,7 @@ require_relative "pokemon"
 
 
 class Menu
-  attr_accessor :pokemons
-
+  
   def initialize
     @pokemons = []
   end
@@ -16,8 +15,8 @@ class Menu
       puts "\n"    
       puts "What would you like to do next?"
       puts "\n"  
-      puts "1. View all Pokemon"
-      puts "2. Add a Pokemon"
+      puts "1. Add a Pokemon"
+      puts "2. View all Pokemon"
       puts "3. Start a battle"
       puts "4. Say bye for now"
       puts "\n"
@@ -27,9 +26,9 @@ class Menu
 
     case choice
     when 1
-      view
-    when 2
       add
+    when 2
+      view
     when 3
       battle
     when 4
@@ -47,19 +46,6 @@ end
 
 private
 
-def view
-  puts "\n"  
-  puts "Pokemon in your collection: "
-    if @pokemons.empty?
-      puts "None. Go back to add some!"
-    else
-      @pokemons.each do |pokemon|
-    puts "#{pokemon.name.upcase} ~ #{pokemon.type.capitalize} type Pokemon with #{pokemon.attack.capitalize} attack."
-    end
-  end
-end
-
-
 def add
   puts "\n"  
   print "Enter Pokemon name: "
@@ -74,9 +60,25 @@ def add
   puts "Welcome, #{name.upcase}!"
 end
 
+def view
+  puts "\n"  
+  puts "Pokemon in your collection: "
+    if @pokemons.empty?
+      puts "None. Go back to add some!"
+    else
+      @pokemons.each do |pokemon|
+    puts "#{pokemon.name.upcase} ~ #{pokemon.type.capitalize} type Pokemon with #{pokemon.attack.capitalize} attack."
+    end
+  end
+end
+
+
 def battle
 
-puts "#{pokemons.sample}"
+  
+opponent = @pokemons.sample
+
+puts "#{opponent.name.upcase}"
 
 end
 
