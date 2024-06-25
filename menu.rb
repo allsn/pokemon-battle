@@ -80,13 +80,12 @@ puts "\n"
 
 competitor = @pokemons[poke_select - 1]
 opponent = @pokemons.sample
-comp_result_1 = "#{competitor.name} used #{competitor.attack} and wounded #{opponent.name}!"
-comp_result_2 = "#{competitor.name} used #{competitor.attack} and #{opponent.name} fainted! You WIN!"
-comp_result_3 = "#{opponent.name} ran away. The battle is over!"
-opp_result_1 = "#{opponent.name} used #{opponent.attack} and wounded #{competitor.name}!"
-opp_result_2 = "#{opponent.name} used #{opponent.attack} and #{competitor.name} fainted! You LOSE!"
-comp_moves = [comp_result_1, comp_result_1, comp_result_2, comp_result_3]
-opp_moves = [opp_result_1, opp_result_1, opp_result_1, opp_result_2]
+comp_result_1 = "#{competitor.name.upcase} used #{competitor.attack.capitalize} and wounded #{opponent.name.upcase}!"
+comp_result_2 = "#{competitor.name.upcase} used #{competitor.attack.capitalize} and #{opponent.name.upcase} fainted! You WIN!"
+opp_result_1 = "#{opponent.name.upcase} used #{opponent.attack.capitalize} and wounded #{competitor.name.upcase}!"
+opp_result_2 = "#{opponent.name.upcase} used #{opponent.attack.capitalize} and #{competitor.name.upcase} fainted! You LOSE!"
+@comp_moves = [comp_result_1, comp_result_1, comp_result_1, comp_result_2]
+@opp_moves = [opp_result_1, opp_result_1, opp_result_1, opp_result_2]
 
 puts "You've selected #{competitor.name.upcase}"
 puts "#{competitor.name.upcase} will battle #{opponent.name.upcase}. Let's begin!"
@@ -100,15 +99,20 @@ puts "#{competitor.name.upcase} will battle #{opponent.name.upcase}. Let's begin
   
       case move_select
         when 1
-          puts comp_moves.sample
-          puts opp_moves.sample
+          until @opp_moves.sample == @opp_result_2
+            puts @comp_moves.sample
+            puts @opp_moves.sample
+          end
         when 2
-          puts "You ran away! Better luck next time :)"
+          puts "You ran away! Better luck next time :) \n \n"
          else
            puts "You must select 1 or 2."
           in_battle
       end
   end
+
+  in_battle
+    
 end
 
 end
