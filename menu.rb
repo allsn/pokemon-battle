@@ -9,17 +9,14 @@ class Menu
 
   def run
     puts "\n"    
-    puts "Welcome to the world of POKEMON!"
+    puts "Welcome to the world of POKEMON! \n \n"
     
     loop do
-      puts "\n"    
-      puts "What would you like to do next?"
-      puts "\n"  
+      puts "What would you like to do next? \n \n"
       puts "1. Add a Pokemon"
       puts "2. View all Pokemon"
       puts "3. Start a battle"
-      puts "4. Say bye for now"
-      puts "\n"
+      puts "4. Say bye for now  \n \n"
       puts "Choose an option: "
 
     choice = gets.chomp.to_i
@@ -33,8 +30,7 @@ class Menu
       battle
     when 4
       puts "\n"  
-      puts "Thanks for playing! Come back to catch 'em all!"
-      puts "\n"
+      puts "Thanks for playing! Come back to catch 'em all!  \n \n"
       break
     else
       puts "\n"  
@@ -57,7 +53,7 @@ def add
   new_poke = Pokemon.new(name, type, attack)
   @pokemons << new_poke
   puts "\n"
-  puts "Welcome, #{name.upcase}!"
+  puts "Welcome, #{name.upcase}!  \n \n"
 end
 
 def view
@@ -67,7 +63,7 @@ def view
       puts "None. Go back to add some!"
     else
       @pokemons.each_with_index do |pokemon, index|
-      puts "#{index + 1}. #{pokemon.name.upcase} ~ #{pokemon.type.capitalize} type Pokemon with #{pokemon.attack.capitalize} attack."
+      puts "#{index + 1}. #{pokemon.name.upcase} ~ #{pokemon.type.capitalize} type Pokemon with #{pokemon.attack.capitalize} attack"
     end
   end
 end
@@ -76,7 +72,7 @@ end
 def battle
 
 puts "\n"  
-puts "Choose your Pokemon by typing its assigned number:"
+puts "Choose your Pokemon by typing its assigned number: "
 view
 puts "\n"  
 poke_select = gets.chomp.to_i
@@ -89,27 +85,30 @@ comp_result_2 = "#{competitor.name} used #{competitor.attack} and #{opponent.nam
 comp_result_3 = "#{opponent.name} ran away. The battle is over!"
 opp_result_1 = "#{opponent.name} used #{opponent.attack} and wounded #{competitor.name}!"
 opp_result_2 = "#{opponent.name} used #{opponent.attack} and #{competitor.name} fainted! You LOSE!"
-comp_moves = [comp_result_1, comp_result_2, comp_result_3]
-opp_moves = [opp_result_1, opp_result_2]
+comp_moves = [comp_result_1, comp_result_1, comp_result_2, comp_result_3]
+opp_moves = [opp_result_1, opp_result_1, opp_result_1, opp_result_2]
 
 puts "You've selected #{competitor.name.upcase}"
 puts "#{competitor.name.upcase} will battle #{opponent.name.upcase}. Let's begin!"
 
-puts "\n"  
-puts "Choose your next move: 1. HIT or 2. RUN AWAY"
-move_select = gets.chomp.to_i
-puts "\n"
 
-    case move_select
-    when 1
-      add
-    when 2
-      puts "You ran away! Better luck next time :)"
-    else
-      puts "You must select 1 or 2."
-    end
-
-
+  def in_battle
+    puts "\n"  
+    puts "Choose your next move: 1. HIT or 2. RUN AWAY"
+    move_select = gets.chomp.to_i
+    puts "\n"
+  
+      case move_select
+        when 1
+          puts comp_moves.sample
+          puts opp_moves.sample
+        when 2
+          puts "You ran away! Better luck next time :)"
+         else
+           puts "You must select 1 or 2."
+          in_battle
+      end
+  end
 end
 
 end
