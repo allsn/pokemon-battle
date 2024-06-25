@@ -75,9 +75,12 @@ end
 
 def battle
 
-  
+player1_move = ["#{name} used #{attack} and wounded #{opponent.name}!", "#{name} used #{attack} and wounded #{opponent.name}!", "#{name} used #{attack} and wounded #{opponent.name}!", "#{name} used #{attack} and #{opponent.name} fainted. You WIN!", "#{opponent.name} ran away. The battle is over!"]
+player2_move = ["#{opponent.name} used #{opponent.attack} and wounded #{name}!", "#{opponent.name} used #{opponent.attack} and wounded #{name}!", "#{opponent.name} used #{opponent.attack} and wounded #{name}!", "#{opponent.name} used #{opponent.attack} and #{name} fainted. You LOSE"]
 opponent = @pokemons.sample
 
+
+puts "Choose your Pokemon!"
 puts "#{opponent.name.upcase}"
 
 end
