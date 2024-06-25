@@ -67,7 +67,7 @@ def view
       puts "None. Go back to add some!"
     else
       @pokemons.each do |pokemon|
-    puts "#{pokemon.name.upcase} ~ #{pokemon.type.capitalize} type Pokemon with #{pokemon.attack.capitalize} attack."
+      puts "#{pokemon.index(pokemon.name).to_s}. #{pokemon.name.upcase} ~ #{pokemon.type.capitalize} type Pokemon with #{pokemon.attack.capitalize} attack."
     end
   end
 end
@@ -75,13 +75,22 @@ end
 
 def battle
 
-player1_move = ["#{name} used #{attack} and wounded #{opponent.name}!", "#{name} used #{attack} and wounded #{opponent.name}!", "#{name} used #{attack} and wounded #{opponent.name}!", "#{name} used #{attack} and #{opponent.name} fainted. You WIN!", "#{opponent.name} ran away. The battle is over!"]
-player2_move = ["#{opponent.name} used #{opponent.attack} and wounded #{name}!", "#{opponent.name} used #{opponent.attack} and wounded #{name}!", "#{opponent.name} used #{opponent.attack} and wounded #{name}!", "#{opponent.name} used #{opponent.attack} and #{name} fainted. You LOSE"]
+
+poke_select = gets.chomp.to_i
+
+competitor = @pokemons[poke_select]
 opponent = @pokemons.sample
 
 
+#player1_move == ["#{name} used #{attack} and wounded #{opponent.name}!", "#{name} used #{attack} and wounded #{opponent.name}!", "#{name} used #{attack} and wounded #{opponent.name}!", "#{name} used #{attack} and #{opponent.name} fainted! You WIN!", "#{opponent.name} ran away. The battle is over!"]
+#player2_move == ["#{opponent.name} used #{opponent.attack} and wounded #{name}!", "#{opponent.name} used #{opponent.attack} and wounded #{name}!", "#{opponent.name} used #{opponent.attack} and wounded #{name}!", "#{opponent.name} used #{opponent.attack} and #{name} fainted! You LOSE!"]
+
+
+
 puts "Choose your Pokemon!"
-puts "#{opponent.name.upcase}"
+puts "#{competitor.name.upcase}"
+
+#puts "#{opponent.name.upcase}"
 
 end
 
