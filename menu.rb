@@ -8,11 +8,12 @@ class Menu
   end
 
   puts "\n"    
-  puts "Welcome to the world of POKEMON! \n \n"
+  puts "Welcome to the world of POKEMON!"
 
   def run
     
     loop do
+      puts "\n"
       puts "What would you like to do next? \n \n"
       puts "1. Add a Pokemon"
       puts "2. View all Pokemon"
@@ -86,10 +87,10 @@ puts "\n"
 
 competitor = @pokemons[poke_select - 1]
 opponent = @pokemons.sample
-comp_result_1 = "#{competitor.name.upcase} used #{competitor.attack.capitalize} and wounded #{opponent.name.upcase}!"
-comp_result_2 = "#{competitor.name.upcase} used #{competitor.attack.capitalize} and #{opponent.name.upcase} fainted! You WIN!"
-opp_result_1 = "#{opponent.name.upcase} used #{opponent.attack.capitalize} and wounded #{competitor.name.upcase}!"
-opp_result_2 = "#{opponent.name.upcase} used #{opponent.attack.capitalize} and #{competitor.name.upcase} fainted! You LOSE!"
+comp_result_1 = ["#{competitor.name.upcase} used #{competitor.attack.capitalize} and wounded #{opponent.name.upcase}!"]
+comp_result_2 = ["#{competitor.name.upcase} used #{competitor.attack.capitalize} and #{opponent.name.upcase} fainted! You WIN!"]
+opp_result_1 = ["#{opponent.name.upcase} used #{opponent.attack.capitalize} and wounded #{competitor.name.upcase}!"]
+opp_result_2 = ["#{opponent.name.upcase} used #{opponent.attack.capitalize} and #{competitor.name.upcase} fainted! You LOSE!"]
 @comp_moves = [comp_result_1, comp_result_1, comp_result_1, comp_result_2]
 @opp_moves = [opp_result_1, opp_result_1, opp_result_1, opp_result_2]
 
@@ -105,11 +106,15 @@ puts "#{competitor.name.upcase} will battle #{opponent.name.upcase}. Let's begin
   
       case move_select
         when 1
-          until @comp_moves.sample == @comp_result_2 || @opp_moves.sample == @opp_result_2
-            puts @comp_moves.sample
-            puts @opp_moves.sample
-            in_battle            
-          end
+#          puts @comp_moves.sample 
+         puts battle.comp_result_2
+#          puts @opp_moves.sample
+         puts battle.opp_result_2
+
+#          until @comp_moves.sample == battle.comp_result_2 || @opp_moves.sample == battle.opp_result_2
+#            puts @comp_moves.sample
+#            puts @opp_moves.sample           
+#          end
         when 2
           puts "You ran away! Better luck next time :) \n \n"
          else
