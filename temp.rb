@@ -19,8 +19,23 @@ end
 
 
 when 1
-  until @comp_moves.sample == @comp_result_2 || @opp_moves.sample == @opp_result_2
+  until @comp_moves.sample == @comp_moves[3] || @opp_moves.sample == @opp_moves[3]
     puts @comp_moves.sample
     puts @opp_moves.sample
-    in_battle
+    next
   end
+
+
+when 1
+  loop do
+    
+
+end
+
+
+when 1
+  while @comp_moves.sample != @comp_moves[3] && @opp_moves.sample != @opp_moves[3]
+    puts @comp_moves.sample
+    puts @opp_moves.sample
+    next
+end

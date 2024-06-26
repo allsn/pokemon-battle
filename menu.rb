@@ -90,32 +90,38 @@ class Menu
       puts "You've selected #{competitor.name.upcase}"
       puts "#{competitor.name.upcase} will battle #{opponent.name.upcase}. Let's begin!"
 
-
-      def in_battle
-        puts "\n"
-        puts "Choose your next move: 1. HIT or 2. RUN AWAY"
-        move_select = gets.chomp.to_i
-        puts "\n"
-
-        case move_select
-        when 1
-          puts @comp_moves[3]
-          puts @opp_moves[3]
-          until @comp_moves.sample == @comp_moves[3] || @opp_moves.sample == @opp_moves[3]
-            puts @comp_moves.sample
-            puts @opp_moves.sample
-            in_battle
-          end
-        when 2
-          puts "You ran away! Better luck next time :) \n \n"
-        else
-          puts "You must select 1 or 2."
-          in_battle
-        end
-      end
-
       in_battle
+    end
+  end
 
+  def in_battle
+    loop do
+      puts "\n"
+      puts "Choose your next move: 1. HIT or 2. RUN AWAY"
+      move_select = gets.chomp.to_i
+      puts "\n"
+
+      case move_select
+      when 1
+        my_move = @comp_moves.sample
+        your_move = @opp_moves.sample
+
+        if my_move != @comp_moves[3] && your_move != @opp_moves[3]
+          puts my_move
+          puts your_move
+          next
+        elsif my_move == @comp_moves[3] && your_move != @opp_moves[3]
+          puts my_move
+          break
+        else
+          puts your_move
+          break
+        end
+      when 2
+        puts "You ran away! Better luck next time :)"
+      else
+        puts "You must select 1 or 2."
+      end
     end
   end
 end
