@@ -16,13 +16,13 @@ class Menu
       puts "2. View all Pokemon"
       puts "3. Start a battle"
       puts "4. Say bye for now  \n \n"
-      puts "Choose an option: "
+      print "Choose an option: "
 
       choice = gets.chomp.to_i
 
       case choice
       when 1
-        add
+        add_poke
       when 2
         view
       when 3
@@ -38,8 +38,12 @@ class Menu
     end
   end
 
+  def poke_added(name, type, attack)
+    pokemon = Pokemon.new(name, type, attack)
+    @pokemons << pokemon
+  end
 
-  def add(name, type, attack)
+  def add_poke
     puts "\n"
     print "Enter Pokemon name: "
     name = gets.chomp
@@ -47,11 +51,13 @@ class Menu
     type = gets.chomp
     print "Enter attack: "
     attack = gets.chomp
-    new_poke = Pokemon.new(name, type, attack)
-    @pokemons << new_poke
+
+    poke_added(name, type, attack)
+
     puts "\n"
     puts "Welcome, #{name.upcase}!"
   end
+
 
   def view
     puts "\n"
@@ -71,9 +77,10 @@ class Menu
       puts "Go back and add some Pokemon first :) \n \n"
     else
       puts "\n"
-      puts "Choose your Pokemon by typing its assigned number: "
+      print "Choose your Pokemon by typing its assigned number: \n"
       view
       puts "\n"
+      print "I choose you: "
       poke_select = gets.chomp.to_i
       puts "\n"
 
