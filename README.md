@@ -1,5 +1,6 @@
-# ruby-cli-template
+# Pokemon Battle CLI
 
-Use this repository as a template for your Ruby CLI (command line interface) project.
+A Ruby CLI (command line interface) app that simulates collecting and battling with Pokemon.
 
-- Ruby version: `3.2.1`
+## How to use
+Run ruby app.rb in the terminal
