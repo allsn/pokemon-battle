@@ -1,6 +1,8 @@
 require_relative "pokemon"
 
 class Menu
+  attr_reader :pokemons
+
   def initialize
     @pokemons = []
   end
