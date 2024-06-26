@@ -38,9 +38,8 @@ class Menu
     end
   end
 
-  private
 
-  def add
+  def add(name, type, attack)
     puts "\n"
     print "Enter Pokemon name: "
     name = gets.chomp
