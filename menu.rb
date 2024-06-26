@@ -119,8 +119,9 @@ class Menu
         end
       when 2
         puts "You ran away! Better luck next time :)"
+        break
       else
-        puts "You must select 1 or 2."
+        puts "You must select 1 or 2"
       end
     end
   end
